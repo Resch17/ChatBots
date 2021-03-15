@@ -10,8 +10,24 @@ namespace ChatBots
             Console.WriteLine("Why talk with people when there are bots?!?!");
 
             List<IChatBot> bots = CreateBots();
-            IChatBot chosenBot = ChooseBot(bots);
-            HaveConversation(chosenBot);
+            bool stillPlaying = true;
+            while (stillPlaying)
+            {
+                IChatBot chosenBot = ChooseBot(bots);
+                HaveConversation(chosenBot);
+                Console.Clear();
+                Console.WriteLine("Keep chatting? (y/n)");
+                Console.Write(" > ");
+                string response = Console.ReadLine().ToLower();
+                if (response == "n")
+                {
+                    stillPlaying = false;
+                }
+                else
+                {
+                    Console.Clear();
+                }
+            }
         }
 
         static List<IChatBot> CreateBots()
