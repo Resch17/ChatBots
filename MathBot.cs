@@ -28,70 +28,42 @@ namespace ChatBots
                     Console.WriteLine($"\"{num}\" ain't no number I ever heard of!");
                 }
             }
-            double output;
-            switch (op)
-            {
-                case "addition":
-                    output = Add(numberList);
-                    break;
-                case "subtraction":
-                    output = Subtract(numberList);
-                    break;
-                case "multiplication":
-                    output = Multiply(numberList);
-                    break;
-                case "division":
-                    output = Divide(numberList);
-                    break;
-                default:
-                    Console.WriteLine("Invalid operation. You get a zero.");
-                    output = 0;
-                    break;
-            }
-
-            return output.ToString();
+            return Math(numberList, op).ToString();
         }
 
-        private double Add(List<double> input)
+        private double Math(List<double> input, string oper)
         {
-            return input.Sum();
-        }
-
-        private double Subtract(List<double> input)
-        {
-            double total = input[0];
+            double output = input[0];
             for (int i = 1; i < input.Count; i++)
             {
-                total -= input[i];
-            }
-            return total;
-        }
-
-        private double Multiply(List<double> input)
-        {
-            double total = input[0];
-            for (int i = 1; i < input.Count; i++)
-            {
-                total = total * input[i];
-            }
-            return total;
-        }
-
-        private double Divide(List<double> input)
-        {
-            double total = input[0];
-            for (int i = 1; i < input.Count; i++)
-            {
-                if (input[i] == 0)
+                switch (oper)
                 {
-                    Console.WriteLine("Nice try, but I'm not dividing by zero! Skipped!");
-                }
-                else
-                {
-                    total = total / input[i];
+                    case "addition":
+                        output += input[i];
+                        break;
+                    case "subtraction":
+                        output -= input[i];
+                        break;
+                    case "multiplication":
+                        output = output * input[i];
+                        break;
+                    case "division":
+                        if (input[i] == 0)
+                        {
+                            Console.WriteLine("Nice try, but I'm not dividing by zero! Skipped!");
+                        }
+                        else
+                        {
+                            output = output / input[i];
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid operation. You get a zero.");
+                        output = 0;
+                        break;
                 }
             }
-            return total;
+            return output;
         }
     }
 }
