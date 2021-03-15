@@ -49,3 +49,7 @@ MathBot: 17
 ## Phase 6
 
 Update the code in the `Program` class to allow the user to choose another chat bot after they have finished chatting. The user should be able to select a new bot or to choose to end the program.
+
+## Phase 7
+
+Create a chatbot that will use ADO<span>.</span>NET to search the PoKi database. The user should be able to input a search term and the bot should return a list of poems that contain that term.
