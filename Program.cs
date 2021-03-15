@@ -23,7 +23,8 @@ namespace ChatBots
                 new QuestionerBot(),
                 new DuckDuckGoBot(),
                 new ShoutBot(),
-                new MimicPlusBot()
+                new MimicPlusBot(),
+                new MathBot()
             };
         }
 
